@@ -282,8 +282,22 @@
     border-radius: 10px;
     padding: 1.5rem;
     transition: border-color 0.2s, transform 0.2s;
+    position: relative; overflow: hidden;
   }
   .skill-card:hover { border-color: #b5c9e8; transform: translateY(-2px); }
+  .project-card::before, .skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), #5b9bd5);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.project-card:hover::before, .skill-card:hover::before {
+  opacity: 1;
+}
 
   .skill-cat {
     font-size: 11px;
@@ -320,6 +334,7 @@
     flex-direction: column;
     gap: 0.85rem;
     transition: border-color 0.2s, transform 0.2s;
+    position: relative; overflow: hidden;
   }
   .project-card:hover { border-color: #b5c9e8; transform: translateY(-3px); }
 
@@ -500,7 +515,7 @@
   <div class="hero-inner">
     <div>
       <div class="availability"><div class="availability-dot"></div> Open to remote opportunities</div>
-      <h1>AI Engineer building <em>intelligent</em> systems</h1>
+      <h1>AI Engineer building <em>Intelligent</em> systems</h1>
       <p class="hero-desc">
         Specializing in LLM-based systems, RAG pipelines, and autonomous agents.
         M.Sc. AI Engineering at JKU Linz. Available globally for remote roles and freelance projects.
@@ -532,14 +547,6 @@
     <div class="terminal-line"><span class="t-prompt">❯ </span><span class="t-cursor"></span></div>
   </div>
 </div>
-      </div>
-      <div class="tech-row">
-        <span class="tech-chip">LangGraph</span>
-        <span class="tech-chip">RAG</span>
-        <span class="tech-chip">PyTorch</span>
-        <span class="tech-chip">FastAPI</span>
-        <span class="tech-chip">Docker</span>
-        <span class="tech-chip">Python</span>
       </div>
     </div>
   </div>
@@ -754,7 +761,7 @@
         </div>
         <div class="info-row">
           <span class="info-key">Languages</span>
-          <span class="info-val">Arabic · English (C1)</span>
+          <span class="info-val">Arabic · English . German</span>
         </div>
         <div class="info-row">
           <span class="info-key">Education</span>
@@ -778,6 +785,15 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
-
+<script>
+  const lines = document.querySelectorAll('.terminal-line');
+  lines.forEach((line, i) => {
+    line.style.opacity = '0';
+    setTimeout(() => {
+      line.style.transition = 'opacity 0.3s ease';
+      line.style.opacity = '1';
+    }, i * 350);
+  });
+</script>
 </body>
 </html>
