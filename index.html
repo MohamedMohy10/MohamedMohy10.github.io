@@ -786,14 +786,29 @@
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
 <script>
-  const lines = document.querySelectorAll('.terminal-line');
-  lines.forEach((line, i) => {
-    line.style.opacity = '0';
-    setTimeout(() => {
-      line.style.transition = 'opacity 0.3s ease';
-      line.style.opacity = '1';
-    }, i * 350);
-  });
+  function animateTerminal() {
+    const lines = document.querySelectorAll('.terminal-line');
+    lines.forEach(line => line.style.opacity = '0');
+
+    let i = 0;
+    function showNext() {
+      if (i < lines.length) {
+        lines[i].style.transition = 'opacity 0.3s ease';
+        lines[i].style.opacity = '1';
+        i++;
+        setTimeout(showNext, 350);
+      } else {
+        // pause 2 seconds at the end, then restart
+        setTimeout(() => {
+          i = 0;
+          animateTerminal();
+        }, 2000);
+      }
+    }
+    showNext();
+  }
+
+  animateTerminal();
 </script>
 </body>
 </html>
