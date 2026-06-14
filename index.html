@@ -292,8 +292,57 @@
     color: var(--muted);
   }
 
+  /* HIGHLIGHTS */
+  #highlights { background: var(--white); }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .highlight-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight-card:hover { border-color: #b5c9e8; transform: translateY(-2px); }
+  .highlight-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), #5b9bd5);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .highlight-card:hover::before { opacity: 1; }
+
+  .highlight-company {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .highlight-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .highlight-tag {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 9px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
   /* PROJECTS */
-  #projects { background: var(--white); }
+  #projects { background: var(--bg); }
 
   .projects-grid {
     display: grid;
@@ -302,7 +351,7 @@
   }
 
   .project-card {
-    background: var(--bg);
+    background: var(--white);
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 2rem;
@@ -411,7 +460,7 @@
     border: 1px solid var(--border);
     padding: 4px 10px;
     border-radius: 4px;
-    background: var(--white);
+    background: var(--bg);
   }
   .project-link.secondary::after { content: '↗'; }
 
@@ -424,7 +473,7 @@
     margin: 0.5rem 0;
   }
   .pipeline-step {
-    background: var(--white);
+    background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 3px 10px;
@@ -462,13 +511,10 @@
     margin-bottom: 0.6rem;
   }
 
-  .tl-desc { color: var(--muted); font-size: 13px; line-height: 1.75; font-weight: 300; }
-
   .tl-bullets {
-    margin-top: 0.6rem;
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0.35rem;
   }
 
   .tl-bullet {
@@ -506,38 +552,19 @@
   /* PHILOSOPHY */
   #philosophy { background: var(--white); }
 
-  .philosophy-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.25rem;
+  .philosophy-prose {
+    max-width: 680px;
   }
 
-  .philosophy-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.5rem;
-  }
-
-  .philosophy-icon {
-    font-size: 1.3rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .philosophy-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 0.4rem;
-    color: var(--text);
-  }
-
-  .philosophy-desc {
-    font-size: 12px;
+  .philosophy-prose p {
+    font-size: 15px;
     color: var(--muted);
-    line-height: 1.65;
+    line-height: 1.8;
     font-weight: 300;
+    margin-bottom: 1.25rem;
   }
+
+  .philosophy-prose p:last-child { margin-bottom: 0; }
 
   /* CURRENTLY BUILDING */
   #building { background: var(--bg); }
@@ -712,14 +739,14 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — unchanged -->
 <section class="hero" id="home">
   <div class="hero-inner">
     <div>
       <div class="availability"><div class="availability-dot"></div> Open to remote &amp; onsite opportunities</div>
-      <h1>Building AI applications that <em>solve</em> real problems/h1>
+      <h1>Building AI applications that <em>solve</em> real problems</h1>
       <p class="hero-desc">
-        I'm an AI & Machine Learning Engineer with a background in backend software engineering, specializing in LLM systems, autonomous agents, RAG pipelines, and scalable Python applications. Currently pursuing an M.Sc. in Artificial Intelligence Engineering at JKU Linz while turning complex AI ideas into reliable, production-ready software.
+        I'm an AI &amp; Machine Learning Engineer with a background in backend software engineering, specializing in LLM systems, autonomous agents, RAG pipelines, and scalable Python applications. Currently pursuing an M.Sc. in Artificial Intelligence Engineering at JKU Linz while turning complex AI ideas into reliable, production-ready software.
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn-primary">See My Work</a>
@@ -769,7 +796,7 @@
       </div>
       <div class="metric-box fade-up">
         <div class="metric-num">5+</div>
-        <div class="metric-label">Production AI systems shipped</div>
+        <div class="metric-label">AI systems built and deployed</div>
       </div>
       <div class="metric-box fade-up">
         <div class="metric-num">3+</div>
@@ -858,18 +885,63 @@
   </div>
 </section>
 
+<!-- PROFESSIONAL HIGHLIGHTS -->
+<section id="highlights">
+  <div class="section-inner">
+    <div class="section-eyebrow">Overview</div>
+    <h2>Professional highlights</h2>
+    <div class="highlights-grid">
+      <div class="highlight-card fade-up">
+        <div class="highlight-company">Dynatrace</div>
+        <div class="highlight-tags">
+          <span class="highlight-tag">Python Monitoring Extensions</span>
+          <span class="highlight-tag">Cloud Observability</span>
+          <span class="highlight-tag">Distributed Systems</span>
+        </div>
+      </div>
+      <div class="highlight-card fade-up">
+        <div class="highlight-company">Backend Engineering</div>
+        <div class="highlight-tags">
+          <span class="highlight-tag">FastAPI</span>
+          <span class="highlight-tag">Django</span>
+          <span class="highlight-tag">REST APIs</span>
+          <span class="highlight-tag">Databases</span>
+        </div>
+      </div>
+      <div class="highlight-card fade-up">
+        <div class="highlight-company">Artificial Intelligence</div>
+        <div class="highlight-tags">
+          <span class="highlight-tag">LLM Systems</span>
+          <span class="highlight-tag">RAG</span>
+          <span class="highlight-tag">Autonomous Agents</span>
+          <span class="highlight-tag">Computer Vision</span>
+        </div>
+      </div>
+      <div class="highlight-card fade-up">
+        <div class="highlight-company">Industrial Software</div>
+        <div class="highlight-tags">
+          <span class="highlight-tag">Automation Systems</span>
+          <span class="highlight-tag">Oracle</span>
+          <span class="highlight-tag">PL/SQL</span>
+          <span class="highlight-tag">C#</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
     <div class="section-eyebrow">Work</div>
-    <h2>Selected Projects</h2>
+    <h2>Selected projects</h2>
     <div class="projects-grid">
 
       <div class="project-card fade-up">
         <div class="project-num">01</div>
         <div class="project-title">DataPilot AI</div>
         <div class="project-problem">Autonomous Data Analysis Agent</div>
-        <p class="project-desc">Most data analysis tools require the user to know what to ask. DataPilot flips this — it plans its own analysis strategy, writes and executes Python code, catches and self-heals its own errors, and delivers a structured PDF report with charts. Built on LangGraph ReAct architecture with a live reasoning interface.</p>
+        <p class="project-desc">The problem with most data analysis tools is that you need to know what questions to ask. DataPilot takes a different approach — given a CSV file, the agent plans its own analysis steps, writes Python code to execute them, retries on failure, and produces a structured PDF report with charts. The interesting engineering challenge was building a reliable code execution loop with self-correction, so the agent recovers from runtime errors without human intervention.</p>
         <div class="pipeline">
           <span class="pipeline-step">CSV Upload</span>
           <span class="pipeline-arrow">→</span>
@@ -897,14 +969,15 @@
         <div class="project-links">
           <a href="https://github.com/MohamedMohy10/DataPilot-AI" class="project-link" target="_blank">GitHub</a>
           <a href="#contact" class="project-link secondary">Request Demo</a>
+          <a href="#" class="project-link secondary">Case Study</a>
         </div>
       </div>
 
       <div class="project-card fade-up">
         <div class="project-num">02</div>
         <div class="project-title">RAG Knowledge Base Chatbot</div>
-        <div class="project-problem">Production Document Intelligence System</div>
-        <p class="project-desc">Enterprise-grade RAG system that lets organizations query their private documents with grounded, citation-based answers. Engineered as a full production pipeline — not a demo — with a Dockerized FastAPI backend, Streamlit frontend, and scalable vector search. Designed for real deployment from day one.</p>
+        <div class="project-problem">Document Retrieval with Citation Grounding</div>
+        <p class="project-desc">Built a RAG application that lets users query their own documents and receive answers grounded in the source material, with citations pointing back to specific passages. The pipeline covers document ingestion, chunking, embedding, vector storage, retrieval, and response generation. Packaged with a FastAPI backend and Streamlit frontend, deployed via Docker — the goal was to make it something you could actually hand to a team and run, not just a notebook demo.</p>
         <div class="pipeline">
           <span class="pipeline-step">PDF Ingestion</span>
           <span class="pipeline-arrow">→</span>
@@ -919,8 +992,8 @@
         <div class="project-metrics">
           <span class="metric-tag">Citation grounding</span>
           <span class="metric-tag">Dockerized deployment</span>
-          <span class="metric-tag">Production backend</span>
-          <span class="metric-tag">Scalable pipeline</span>
+          <span class="metric-tag">FastAPI backend</span>
+          <span class="metric-tag">Full pipeline</span>
         </div>
         <div class="project-stack">
           <span class="stack-tag">LangChain</span>
@@ -932,14 +1005,15 @@
         <div class="project-links">
           <a href="https://github.com/MohamedMohy10/RAG-Chatbot" class="project-link" target="_blank">GitHub</a>
           <a href="#contact" class="project-link secondary">Request Demo</a>
+          <a href="#" class="project-link secondary">Case Study</a>
         </div>
       </div>
 
       <div class="project-card fade-up">
         <div class="project-num">03</div>
         <div class="project-title">ALPR System</div>
-        <div class="project-problem">Real-Time License Plate Recognition</div>
-        <p class="project-desc">Deep learning pipeline for real-time automatic license plate detection and recognition, engineered for production deployment. Achieved near-perfect accuracy with sub-4ms inference — fast enough for live camera feeds. Optimized on NVIDIA T4 using YOLOv8 with a custom inference pipeline.</p>
+        <div class="project-problem">Real-Time License Plate Detection</div>
+        <p class="project-desc">Trained and optimized a YOLOv8 model for real-time license plate detection, with the goal of making it fast enough for live camera input. The focus was on the inference pipeline — getting latency down to ~3.5ms on NVIDIA T4 while keeping accuracy high. Evaluated using mAP50 and F1-score, achieving 98.4% and 96.6% respectively. Designed for deployment in real-time scenarios, not just offline benchmarking.</p>
         <div class="pipeline">
           <span class="pipeline-step">Camera Feed</span>
           <span class="pipeline-arrow">→</span>
@@ -963,6 +1037,7 @@
         </div>
         <div class="project-links">
           <a href="https://github.com/MohamedMohy10/Automatic-license-plate-recognition-yolov8n" class="project-link" target="_blank">GitHub</a>
+          <a href="#" class="project-link secondary">Case Study</a>
         </div>
       </div>
 
@@ -970,7 +1045,7 @@
         <div class="project-num">04</div>
         <div class="project-title">Cooperative Warehouse Agents</div>
         <div class="project-problem">Multi-Agent Reinforcement Learning</div>
-        <p class="project-desc">Designed and implemented a cooperative MARL environment simulating warehouse robots operating under partial observability. Investigated how independent agents learn to coordinate without direct communication — studying reward shaping, training stability, and emergent cooperative behavior across multiple algorithms.</p>
+        <p class="project-desc">Built a MARL environment where multiple agents must coordinate to solve warehouse tasks without being able to observe the full state. The core question was how agents develop cooperation strategies without explicit communication. Studied the effect of different reward shaping approaches on coordination quality and training stability across several algorithms, and analyzed where independent learning breaks down at scale.</p>
         <div class="pipeline">
           <span class="pipeline-step">Environment</span>
           <span class="pipeline-arrow">→</span>
@@ -993,6 +1068,7 @@
         </div>
         <div class="project-links">
           <a href="https://github.com/MohamedMohy10/Cooperative-warehouse-agents-using-marl" class="project-link" target="_blank">GitHub</a>
+          <a href="#" class="project-link secondary">Case Study</a>
         </div>
       </div>
 
@@ -1014,17 +1090,16 @@
         </div>
         <div>
           <div class="tl-role">Software Engineer Intern</div>
-          <p class="tl-desc">Contributed to production observability systems at one of the world's leading cloud monitoring platforms. Worked directly with distributed systems infrastructure serving enterprise clients globally.</p>
           <div class="tl-bullets">
-            <div class="tl-bullet">Designed and shipped a Python monitoring extension integrating real-time environmental data via the Open-Meteo API into Dynatrace's observability platform</div>
-            <div class="tl-bullet">Customized enterprise analytics dashboards to improve data reporting across cloud monitoring use cases</div>
-            <div class="tl-bullet">Gained hands-on experience with distributed systems, managed cloud infrastructure, and performance analytics at scale</div>
+            <div class="tl-bullet">Built a Python monitoring extension that pulls real-time air quality data from the Open-Meteo API and feeds it into Dynatrace's observability platform</div>
+            <div class="tl-bullet">Customized monitoring dashboards to improve how environmental data is reported and visualized</div>
+            <div class="tl-bullet">Worked within distributed cloud infrastructure and gained exposure to how large-scale observability systems are structured</div>
           </div>
           <div class="tl-tags">
             <span class="tl-tag">Python</span>
-            <span class="tl-tag">Distributed Systems</span>
-            <span class="tl-tag">Cloud Monitoring</span>
             <span class="tl-tag">REST APIs</span>
+            <span class="tl-tag">Cloud Monitoring</span>
+            <span class="tl-tag">Distributed Systems</span>
             <span class="tl-tag">Observability</span>
           </div>
         </div>
@@ -1037,12 +1112,11 @@
         </div>
         <div>
           <div class="tl-role">Level 2 Automation Engineer</div>
-          <p class="tl-desc">Owned production software systems in a large-scale industrial environment — one of Egypt's largest steel producers. Responsible for system reliability, database management, and software development across critical plant operations.</p>
           <div class="tl-bullets">
-            <div class="tl-bullet">Developed C# software components for automation and process optimization in live production systems</div>
-            <div class="tl-bullet">Managed Oracle databases including schema design, PL/SQL queries, and data extraction pipelines supporting operational decisions</div>
-            <div class="tl-bullet">Maintained server and network infrastructure ensuring high availability across critical plant systems</div>
-            <div class="tl-bullet">Built enterprise reporting systems using Oracle Forms &amp; Reports to improve operational decision-making</div>
+            <div class="tl-bullet">Developed C# software components used in automation and process control across live plant systems</div>
+            <div class="tl-bullet">Managed Oracle databases — schema modifications, PL/SQL queries, and data extraction pipelines used by engineering teams daily</div>
+            <div class="tl-bullet">Maintained servers and network infrastructure in a high-availability industrial environment</div>
+            <div class="tl-bullet">Built and maintained reporting systems using Oracle Forms &amp; Reports to support operational decision-making</div>
           </div>
           <div class="tl-tags">
             <span class="tl-tag">C#</span>
@@ -1061,12 +1135,11 @@
         </div>
         <div>
           <div class="tl-role">Freelance Python Developer</div>
-          <p class="tl-desc">Designed, built, and delivered backend systems for real clients — independently managing requirements, architecture decisions, and delivery end to end.</p>
           <div class="tl-bullets">
-            <div class="tl-bullet">Designed and deployed production backend systems using FastAPI, Django, and Flask for multiple clients</div>
-            <div class="tl-bullet">Built a Telegram-based currency rate bot with real-time API integration and automated daily financial data updates</div>
-            <div class="tl-bullet">Developed a live football match data scraping pipeline with structured CSV export</div>
-            <div class="tl-bullet">Delivered a secure encrypted password manager desktop application with full GUI</div>
+            <div class="tl-bullet">Built and deployed backend APIs for clients using FastAPI, Django, and Flask</div>
+            <div class="tl-bullet">Developed a Telegram bot that fetches live currency exchange rates and sends automated daily updates</div>
+            <div class="tl-bullet">Built a data scraping pipeline that extracts live football match data and exports it to structured CSV files</div>
+            <div class="tl-bullet">Delivered a desktop password manager with encrypted local storage and a GUI built with Python</div>
           </div>
           <div class="tl-tags">
             <span class="tl-tag">FastAPI</span>
@@ -1087,27 +1160,11 @@
   <div class="section-inner">
     <div class="section-eyebrow">Approach</div>
     <h2>Engineering philosophy</h2>
-    <div class="philosophy-grid">
-      <div class="philosophy-card fade-up">
-        <div class="philosophy-icon">⚙️</div>
-        <div class="philosophy-title">Production first</div>
-        <p class="philosophy-desc">I don't build demos. Every system I design is built to be deployed — with proper error handling, modular architecture, and reproducible results. If it can't run in production, it's not done.</p>
-      </div>
-      <div class="philosophy-card fade-up">
-        <div class="philosophy-icon">🧱</div>
-        <div class="philosophy-title">Engineering depth over framework breadth</div>
-        <p class="philosophy-desc">Knowing LangChain is easy. Understanding when not to use it is harder. I approach AI systems as a software engineer — with attention to scalability, maintainability, and long-term design quality.</p>
-      </div>
-      <div class="philosophy-card fade-up">
-        <div class="philosophy-icon">📐</div>
-        <div class="philosophy-title">Measurable outcomes</div>
-        <p class="philosophy-desc">Every system I build has defined success metrics — inference latency, accuracy, retrieval quality, pipeline reliability. I believe AI engineering without measurement is just guessing.</p>
-      </div>
-      <div class="philosophy-card fade-up">
-        <div class="philosophy-icon">🔁</div>
-        <div class="philosophy-title">Full-stack AI thinking</div>
-        <p class="philosophy-desc">From backend architecture to model training to frontend interfaces — I can design and build the entire system. AI value comes from integration, not isolation. I think about the whole pipeline, not just the model.</p>
-      </div>
+    <div class="philosophy-prose">
+      <p>I enjoy building complete software systems rather than isolated AI models.</p>
+      <p>For me, a successful AI application is more than an accurate model. It also needs clean architecture, reliable APIs, maintainable code, reproducible workflows, and a user experience that makes the technology genuinely useful.</p>
+      <p>Whether I'm building an autonomous agent, a RAG system, or a computer vision application, I approach every project as a software engineering problem first. AI is one component of the solution — not the entire solution.</p>
+      <p>I value simplicity, modular design, measurable performance, and building systems that someone else could understand, maintain, and extend.</p>
     </div>
   </div>
 </section>
@@ -1121,17 +1178,17 @@
       <div class="building-card fade-up">
         <div class="building-badge"><div class="building-dot"></div> In progress</div>
         <div class="building-title">Enterprise Brain</div>
-        <p class="building-desc">Multimodal enterprise RAG system supporting PDFs, tables, and images with cross-document reasoning and structured citation. Designed for real organizational knowledge management.</p>
+        <p class="building-desc">A multimodal RAG platform that can understand technical documents, financial reports, tables, charts, and images using open-source LLMs and vision-language models.</p>
       </div>
       <div class="building-card fade-up">
         <div class="building-badge"><div class="building-dot"></div> In progress</div>
         <div class="building-title">DataPilot AI v2</div>
-        <p class="building-desc">Extending DataPilot with multi-dataset reasoning, automated hypothesis generation, and improved agent memory. Moving from single-session analysis toward persistent analytical workflows.</p>
+        <p class="building-desc">Expanding the autonomous data analysis agent with improved planning, richer visualizations, and support for larger analytical workflows across multiple datasets.</p>
       </div>
       <div class="building-card fade-up">
         <div class="building-badge"><div class="building-dot"></div> Research</div>
         <div class="building-title">Warehouse Multi-Agent RL</div>
-        <p class="building-desc">Continuing research into emergent coordination strategies in cooperative MARL environments, with focus on scalability to larger agent populations and dynamic task assignment.</p>
+        <p class="building-desc">Exploring cooperative reinforcement learning strategies for warehouse optimization under partial observability, focusing on coordination at larger agent populations.</p>
       </div>
     </div>
   </div>
@@ -1145,7 +1202,7 @@
         <div class="section-eyebrow">Contact</div>
         <h2>Open to the right opportunity</h2>
         <p class="contact-desc">
-          I'm looking for roles where I can build real AI systems that ship to production — not maintain dashboards. If you're working on something technically interesting in AI engineering, LLM systems, backend development, or applied ML, I'd like to hear about it.
+          I'm looking for roles where I can build AI systems that actually get used — not proof-of-concepts that sit in a repo. If you're working on something in AI engineering, LLM systems, backend development, or applied ML, I'd like to hear about it.
         </p>
         <div class="contact-types">
           <span class="contact-type-tag">AI Engineering</span>
@@ -1201,7 +1258,7 @@
         </div>
         <div class="info-row">
           <span class="info-key">Languages</span>
-          <span class="info-val">Arabic · English C1</span>
+          <span class="info-val">Arabic · English · German</span>
         </div>
       </div>
     </div>
@@ -1210,7 +1267,7 @@
 
 <footer>
   <span>© 2026 Mohamed Mohy</span>
-  <span>AI & Machine Learning Engineer · Linz, Austria</span>
+  <span>AI &amp; Machine Learning Engineer · Linz, Austria</span>
 </footer>
 
 <script>
