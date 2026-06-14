@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mohamed Mohy — AI Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #f8f7f4;
@@ -68,34 +68,40 @@
     align-items: center;
     padding: 9rem 5rem 5rem;
   }
-.hero-terminal {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  align-self: center;
-}
-.terminal-bar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border);
-  background: #0d0d0d;
-}
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.dot-red { background: #ff5f56; }
-.dot-yellow { background: #ffbd2e; }
-.dot-green { background: #27c93f; }
-.terminal-title { margin-left: auto; font-size: 11px; color: var(--muted); }
-.terminal-body { padding: 1.5rem; background: #111; }
-.terminal-line { margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
-.t-prompt { color: #27c93f; }
-.t-cmd { color: #fff; }
-.t-output { color: #666; padding-left: 1rem; }
-.t-highlight { color: #378add; }
-.t-string { color: #ff9f43; }
-.t-cursor { display: inline-block; width: 8px; height: 14px; background: #27c93f; animation: blink 1s step-end infinite; vertical-align: middle; margin-left: 2px; }
+
+  .hero-terminal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    align-self: center;
+  }
+
+  .terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: #0d0d0d;
+  }
+
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-red { background: #ff5f56; }
+  .dot-yellow { background: #ffbd2e; }
+  .dot-green { background: #27c93f; }
+  .terminal-title { margin-left: auto; font-size: 11px; color: var(--muted); }
+  .terminal-body { padding: 1.5rem; background: #111; }
+  .terminal-line { margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  .t-prompt { color: #27c93f; }
+  .t-cmd { color: #fff; }
+  .t-output { color: #666; padding-left: 1rem; }
+  .t-highlight { color: #378add; }
+  .t-string { color: #ff9f43; }
+  .t-cursor { display: inline-block; width: 8px; height: 14px; background: #27c93f; animation: blink 1s step-end infinite; vertical-align: middle; margin-left: 2px; }
+
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
   .hero-inner {
     max-width: 1100px;
     width: 100%;
@@ -186,67 +192,6 @@
   }
   .btn-secondary:hover { border-color: var(--muted); }
 
-  .hero-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem;
-  }
-
-  .hero-card-label {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--faint);
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-  }
-
-  .stat-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .stat-box {
-    background: var(--surface);
-    border-radius: 8px;
-    padding: 1rem 1.2rem;
-  }
-
-  .stat-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.9rem;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .stat-label {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.03em;
-  }
-
-  .tech-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .tech-chip {
-    background: var(--accent-light);
-    color: var(--accent);
-    border-radius: 4px;
-    padding: 4px 10px;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-  }
-
   section { padding: 6rem 5rem; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
 
@@ -268,7 +213,37 @@
     color: var(--text);
   }
 
-  #skills { background: var(--white); }
+  /* METRICS STRIP */
+  #metrics { background: var(--white); padding: 3rem 5rem; }
+  .metrics-inner { max-width: 1100px; margin: 0 auto; }
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  .metric-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+  }
+  .metric-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .metric-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+  }
+
+  /* SKILLS */
+  #skills { background: var(--bg); }
 
   .skills-grid {
     display: grid;
@@ -277,27 +252,25 @@
   }
 
   .skill-card {
-    background: var(--bg);
+    background: var(--white);
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 1.5rem;
     transition: border-color 0.2s, transform 0.2s;
-    position: relative; overflow: hidden;
+    position: relative;
+    overflow: hidden;
   }
   .skill-card:hover { border-color: #b5c9e8; transform: translateY(-2px); }
-  .project-card::before, .skill-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), #5b9bd5);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-.project-card:hover::before, .skill-card:hover::before {
-  opacity: 1;
-}
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), #5b9bd5);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .skill-card:hover::before { opacity: 1; }
 
   .skill-cat {
     font-size: 11px;
@@ -311,13 +284,16 @@
   .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
   .skill-tag {
-    background: var(--white);
+    background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 3px 9px;
     font-size: 12px;
     color: var(--muted);
   }
+
+  /* PROJECTS */
+  #projects { background: var(--white); }
 
   .projects-grid {
     display: grid;
@@ -326,7 +302,7 @@
   }
 
   .project-card {
-    background: var(--white);
+    background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 2rem;
@@ -334,9 +310,20 @@
     flex-direction: column;
     gap: 0.85rem;
     transition: border-color 0.2s, transform 0.2s;
-    position: relative; overflow: hidden;
+    position: relative;
+    overflow: hidden;
   }
   .project-card:hover { border-color: #b5c9e8; transform: translateY(-3px); }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), #5b9bd5);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .project-card:hover::before { opacity: 1; }
 
   .project-num {
     font-size: 11px;
@@ -347,9 +334,18 @@
 
   .project-title {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 400;
     color: var(--text);
+  }
+
+  .project-problem {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
   }
 
   .project-desc {
@@ -360,40 +356,98 @@
     font-weight: 300;
   }
 
-  .project-stack { display: flex; flex-wrap: wrap; gap: 5px; }
+  .project-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
 
-  .stack-tag {
+  .metric-tag {
     background: var(--accent-light);
     color: var(--accent);
     border-radius: 4px;
     padding: 3px 9px;
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .project-stack { display: flex; flex-wrap: wrap; gap: 5px; }
+
+  .stack-tag {
+    background: var(--surface);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 9px;
+    font-size: 11px;
+    font-weight: 400;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 4px;
   }
 
   .project-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     color: var(--accent);
     text-decoration: none;
     font-size: 12px;
     font-weight: 500;
-    margin-top: 4px;
     transition: opacity 0.2s;
   }
   .project-link:hover { opacity: 0.7; }
   .project-link::after { content: '↗'; font-size: 11px; }
+  .project-link.secondary {
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: var(--white);
+  }
+  .project-link.secondary::after { content: '↗'; }
 
-  #experience { background: var(--white); }
+  /* PIPELINE DIAGRAM */
+  .pipeline {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0.5rem 0;
+  }
+  .pipeline-step {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: var(--text);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .pipeline-arrow {
+    color: var(--faint);
+    font-size: 12px;
+  }
+
+  /* EXPERIENCE */
+  #experience { background: var(--bg); }
 
   .timeline { display: flex; flex-direction: column; }
 
   .tl-item {
     display: grid;
-    grid-template-columns: 190px 1fr;
+    grid-template-columns: 200px 1fr;
     gap: 2.5rem;
-    padding: 2rem 0;
+    padding: 2.5rem 0;
     border-bottom: 1px solid var(--border);
   }
   .tl-item:last-child { border-bottom: none; }
@@ -403,14 +457,144 @@
 
   .tl-role {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 400;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.6rem;
   }
 
-  .tl-desc { color: var(--muted); font-size: 13px; line-height: 1.7; font-weight: 300; }
+  .tl-desc { color: var(--muted); font-size: 13px; line-height: 1.75; font-weight: 300; }
 
-  #contact { background: var(--bg); }
+  .tl-bullets {
+    margin-top: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .tl-bullet {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .tl-bullet::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .tl-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 0.75rem;
+  }
+
+  .tl-tag {
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  /* PHILOSOPHY */
+  #philosophy { background: var(--white); }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .philosophy-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+
+  .philosophy-icon {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .philosophy-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.4rem;
+    color: var(--text);
+  }
+
+  .philosophy-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* CURRENTLY BUILDING */
+  #building { background: var(--bg); }
+
+  .building-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .building-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .building-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .building-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 1.8s infinite;
+  }
+
+  .building-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .building-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--white); }
 
   .contact-grid {
     display: grid;
@@ -427,6 +611,22 @@
     font-weight: 300;
   }
 
+  .contact-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 2rem;
+  }
+
+  .contact-type-tag {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
   .social-icons { display: flex; gap: 1rem; margin-top: 1rem; }
 
   .social-icon {
@@ -436,16 +636,15 @@
     width: 48px; height: 48px;
     border: 1px solid var(--border);
     border-radius: 8px;
-    background: var(--white);
+    background: var(--bg);
     text-decoration: none;
     transition: border-color 0.2s, transform 0.2s;
   }
   .social-icon:hover { border-color: var(--accent); transform: translateY(-2px); }
-
   .social-icon svg { width: 22px; height: 22px; }
 
   .contact-info-block {
-    background: var(--white);
+    background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 2rem;
@@ -478,7 +677,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--white);
+    background: var(--bg);
   }
 
   footer span { font-size: 12px; color: var(--faint); }
@@ -491,11 +690,12 @@
     .nav-links { display: none; }
     .hero { padding: 6rem 1.5rem 3rem; }
     .hero-inner { grid-template-columns: 1fr; }
-    .hero-card { display: none; }
+    .hero-terminal { display: none; }
     section { padding: 4rem 1.5rem; }
+    #metrics { padding: 2rem 1.5rem; }
     .tl-item { grid-template-columns: 1fr; gap: 0.4rem; }
     .contact-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 0.5rem; }
+    footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem; }
   }
 </style>
 </head>
@@ -507,70 +707,112 @@
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#experience">Experience</a>
+    <a href="#philosophy">Approach</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-inner">
     <div>
-      <div class="availability"><div class="availability-dot"></div> Open to remote opportunities</div>
-      <h1>AI Engineer building <em>Intelligent</em> systems</h1>
+      <div class="availability"><div class="availability-dot"></div> Open to remote &amp; onsite opportunities</div>
+      <h1>I build <em>production</em> AI systems — end to end</h1>
       <p class="hero-desc">
-        Specializing in LLM-based systems, RAG pipelines, and autonomous agents.
-        M.Sc. AI Engineering at JKU Linz. Available Onsite within Austria and globally for remote roles and freelance projects.
+        From backend architecture to LLM agents, RAG pipelines, and computer vision — I design and ship complete AI applications, not just models. Software engineer first, AI specialist second. M.Sc. AI Engineering at JKU Linz.
       </p>
       <div class="hero-cta">
-        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#projects" class="btn-primary">See My Work</a>
         <a href="#contact" class="btn-secondary">Get in Touch</a>
       </div>
     </div>
 
-<div class="hero-terminal">
-  <div class="terminal-bar">
-    <div class="dot dot-red"></div>
-    <div class="dot dot-yellow"></div>
-    <div class="dot dot-green"></div>
-    <span class="terminal-title">agent.py</span>
-  </div>
-  <div class="terminal-body">
-    <div class="terminal-line"><span class="t-prompt">❯ </span><span class="t-cmd">python agent.py --mode rag</span></div>
-    <div class="terminal-line t-output">Initializing LangGraph ReAct agent...</div>
-    <div class="terminal-line t-output">Loading vector store <span class="t-highlight">ChromaDB</span> ✓</div>
-    <div class="terminal-line t-output">Embedding model <span class="t-string">"llama3"</span> loaded ✓</div>
-    <div class="terminal-line t-output">&nbsp;</div>
-    <div class="terminal-line"><span class="t-prompt">Agent: </span><span class="t-cmd">Analyzing your query...</span></div>
-    <div class="terminal-line t-output">→ Retrieved <span class="t-highlight">5</span> relevant chunks</div>
-    <div class="terminal-line t-output">→ Self-correcting code execution...</div>
-    <div class="terminal-line t-output">→ Generating structured report</div>
-    <div class="terminal-line t-output">&nbsp;</div>
-    <div class="terminal-line"><span class="t-prompt">❯ </span><span class="t-cursor"></span></div>
-  </div>
-</div>
+    <div class="hero-terminal">
+      <div class="terminal-bar">
+        <div class="dot dot-red"></div>
+        <div class="dot dot-yellow"></div>
+        <div class="dot dot-green"></div>
+        <span class="terminal-title">agent.py</span>
+      </div>
+      <div class="terminal-body">
+        <div class="terminal-line"><span class="t-prompt">❯ </span><span class="t-cmd">python agent.py --mode rag</span></div>
+        <div class="terminal-line t-output">Initializing LangGraph ReAct agent...</div>
+        <div class="terminal-line t-output">Loading vector store <span class="t-highlight">ChromaDB</span> ✓</div>
+        <div class="terminal-line t-output">Embedding model <span class="t-string">"llama3"</span> loaded ✓</div>
+        <div class="terminal-line t-output">&nbsp;</div>
+        <div class="terminal-line"><span class="t-prompt">Agent: </span><span class="t-cmd">Analyzing your query...</span></div>
+        <div class="terminal-line t-output">→ Retrieved <span class="t-highlight">5</span> relevant chunks</div>
+        <div class="terminal-line t-output">→ Self-correcting code execution...</div>
+        <div class="terminal-line t-output">→ Generating structured report</div>
+        <div class="terminal-line t-output">&nbsp;</div>
+        <div class="terminal-line"><span class="t-prompt">❯ </span><span class="t-cursor"></span></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- METRICS -->
+<section id="metrics">
+  <div class="metrics-inner">
+    <div class="metrics-grid">
+      <div class="metric-box fade-up">
+        <div class="metric-num">98.4%</div>
+        <div class="metric-label">mAP50 — ALPR System</div>
+      </div>
+      <div class="metric-box fade-up">
+        <div class="metric-num">3.5ms</div>
+        <div class="metric-label">Inference time on NVIDIA T4</div>
+      </div>
+      <div class="metric-box fade-up">
+        <div class="metric-num">95.6%</div>
+        <div class="metric-label">Accuracy — Traffic Sign Recognition</div>
+      </div>
+      <div class="metric-box fade-up">
+        <div class="metric-num">5+</div>
+        <div class="metric-label">Production AI systems shipped</div>
+      </div>
+      <div class="metric-box fade-up">
+        <div class="metric-num">3+</div>
+        <div class="metric-label">Years Python engineering</div>
+      </div>
+      <div class="metric-box fade-up">
+        <div class="metric-num">M.Sc.</div>
+        <div class="metric-label">AI Engineering · JKU Linz</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
     <div class="section-eyebrow">Expertise</div>
     <h2>Technical Skills</h2>
     <div class="skills-grid">
       <div class="skill-card fade-up">
-        <div class="skill-cat">AI & ML</div>
+        <div class="skill-cat">LLM & Agents</div>
         <div class="skill-tags">
           <span class="skill-tag">LangChain</span>
           <span class="skill-tag">LangGraph</span>
           <span class="skill-tag">RAG Systems</span>
-          <span class="skill-tag">PyTorch</span>
           <span class="skill-tag">HuggingFace</span>
-          <span class="skill-tag">OpenCV</span>
-          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">ReAct Agents</span>
+          <span class="skill-tag">Vector Search</span>
         </div>
       </div>
       <div class="skill-card fade-up">
-        <div class="skill-cat">Backend</div>
+        <div class="skill-cat">Computer Vision & ML</div>
+        <div class="skill-tags">
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">OpenCV</span>
+          <span class="skill-tag">YOLOv8</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">Deep Learning</span>
+          <span class="skill-tag">MARL</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-cat">Backend Engineering</div>
         <div class="skill-tags">
           <span class="skill-tag">Python</span>
           <span class="skill-tag">FastAPI</span>
@@ -578,6 +820,17 @@
           <span class="skill-tag">Flask</span>
           <span class="skill-tag">REST APIs</span>
           <span class="skill-tag">Streamlit</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-cat">Cloud & Infrastructure</div>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS EC2</span>
+          <span class="skill-tag">AWS S3</span>
+          <span class="skill-tag">AWS IAM</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Git</span>
         </div>
       </div>
       <div class="skill-card fade-up">
@@ -592,19 +845,20 @@
         </div>
       </div>
       <div class="skill-card fade-up">
-        <div class="skill-cat">DevOps & Tools</div>
+        <div class="skill-cat">Languages</div>
         <div class="skill-tags">
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">Linux</span>
-          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Python</span>
           <span class="skill-tag">C#</span>
-          <span class="skill-tag">IoT</span>
+          <span class="skill-tag">C/C++</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">MATLAB</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
     <div class="section-eyebrow">Work</div>
@@ -614,20 +868,60 @@
       <div class="project-card fade-up">
         <div class="project-num">01</div>
         <div class="project-title">DataPilot AI</div>
-        <p class="project-desc">Autonomous AI data analyst using LangGraph ReAct architecture. Plans and executes multi-step data workflows, self-heals code errors, and generates structured PDF reports with visualizations via a live Streamlit interface.</p>
+        <div class="project-problem">Autonomous Data Analysis Agent</div>
+        <p class="project-desc">Most data analysis tools require the user to know what to ask. DataPilot flips this — it plans its own analysis strategy, writes and executes Python code, catches and self-heals its own errors, and delivers a structured PDF report with charts. Built on LangGraph ReAct architecture with a live reasoning interface.</p>
+        <div class="pipeline">
+          <span class="pipeline-step">CSV Upload</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">Planning Agent</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">Code Execution</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">Self-Healing</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">PDF Report</span>
+        </div>
+        <div class="project-metrics">
+          <span class="metric-tag">Autonomous planning</span>
+          <span class="metric-tag">Self-healing execution</span>
+          <span class="metric-tag">Live agent reasoning</span>
+          <span class="metric-tag">PDF generation</span>
+        </div>
         <div class="project-stack">
           <span class="stack-tag">LangGraph</span>
           <span class="stack-tag">Pandas</span>
           <span class="stack-tag">Streamlit</span>
           <span class="stack-tag">ReportLab</span>
+          <span class="stack-tag">Matplotlib</span>
         </div>
-        <a href="https://github.com/MohamedMohy10/DataPilot-AI" class="project-link">View on GitHub</a>
+        <div class="project-links">
+          <a href="https://github.com/MohamedMohy10/DataPilot-AI" class="project-link" target="_blank">GitHub</a>
+          <a href="#contact" class="project-link secondary">Request Demo</a>
+        </div>
       </div>
 
       <div class="project-card fade-up">
         <div class="project-num">02</div>
         <div class="project-title">RAG Knowledge Base Chatbot</div>
-        <p class="project-desc">Production-ready Retrieval-Augmented Generation system for querying private documents with citation-based responses. Full pipeline: ingestion, embedding, vector search, LLM generation. Dockerized with FastAPI and Streamlit.</p>
+        <div class="project-problem">Production Document Intelligence System</div>
+        <p class="project-desc">Enterprise-grade RAG system that lets organizations query their private documents with grounded, citation-based answers. Engineered as a full production pipeline — not a demo — with a Dockerized FastAPI backend, Streamlit frontend, and scalable vector search. Designed for real deployment from day one.</p>
+        <div class="pipeline">
+          <span class="pipeline-step">PDF Ingestion</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">Embedding</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">Vector Search</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">LLM Generation</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">Cited Answer</span>
+        </div>
+        <div class="project-metrics">
+          <span class="metric-tag">Citation grounding</span>
+          <span class="metric-tag">Dockerized deployment</span>
+          <span class="metric-tag">Production backend</span>
+          <span class="metric-tag">Scalable pipeline</span>
+        </div>
         <div class="project-stack">
           <span class="stack-tag">LangChain</span>
           <span class="stack-tag">Llama3</span>
@@ -635,39 +929,78 @@
           <span class="stack-tag">Docker</span>
           <span class="stack-tag">ChromaDB</span>
         </div>
-        <a href="https://github.com/MohamedMohy10/RAG-Chatbot" class="project-link">View on GitHub</a>
+        <div class="project-links">
+          <a href="https://github.com/MohamedMohy10/RAG-Chatbot" class="project-link" target="_blank">GitHub</a>
+          <a href="#contact" class="project-link secondary">Request Demo</a>
+        </div>
       </div>
 
       <div class="project-card fade-up">
         <div class="project-num">03</div>
         <div class="project-title">ALPR System</div>
-        <p class="project-desc">Real-time license plate detection using YOLOv8. Achieved 98.4% mAP50 and 96.6% F1-score with ~3.5ms inference time on NVIDIA T4. Optimized pipeline for real-time deployment scenarios.</p>
+        <div class="project-problem">Real-Time License Plate Recognition</div>
+        <p class="project-desc">Deep learning pipeline for real-time automatic license plate detection and recognition, engineered for production deployment. Achieved near-perfect accuracy with sub-4ms inference — fast enough for live camera feeds. Optimized on NVIDIA T4 using YOLOv8 with a custom inference pipeline.</p>
+        <div class="pipeline">
+          <span class="pipeline-step">Camera Feed</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">YOLOv8 Detection</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">OCR</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">Structured Output</span>
+        </div>
+        <div class="project-metrics">
+          <span class="metric-tag">98.4% mAP50</span>
+          <span class="metric-tag">96.6% F1-score</span>
+          <span class="metric-tag">~3.5ms inference</span>
+          <span class="metric-tag">NVIDIA T4</span>
+        </div>
         <div class="project-stack">
           <span class="stack-tag">YOLOv8</span>
           <span class="stack-tag">PyTorch</span>
           <span class="stack-tag">OpenCV</span>
           <span class="stack-tag">Python</span>
         </div>
-        <a href="https://github.com/MohamedMohy10/Automatic-license-plate-recognition-yolov8n" class="project-link">View on GitHub</a>
+        <div class="project-links">
+          <a href="https://github.com/MohamedMohy10/Automatic-license-plate-recognition-yolov8n" class="project-link" target="_blank">GitHub</a>
+        </div>
       </div>
 
       <div class="project-card fade-up">
         <div class="project-num">04</div>
         <div class="project-title">Cooperative Warehouse Agents</div>
-        <p class="project-desc">Multi-agent reinforcement learning environment for warehouse optimization under partial observability. Studied coordination strategies, reward shaping, and training stability across MARL algorithms.</p>
+        <div class="project-problem">Multi-Agent Reinforcement Learning</div>
+        <p class="project-desc">Designed and implemented a cooperative MARL environment simulating warehouse robots operating under partial observability. Investigated how independent agents learn to coordinate without direct communication — studying reward shaping, training stability, and emergent cooperative behavior across multiple algorithms.</p>
+        <div class="pipeline">
+          <span class="pipeline-step">Environment</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">Partial Obs.</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">MARL Training</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-step">Coordination</span>
+        </div>
+        <div class="project-metrics">
+          <span class="metric-tag">Cooperative MARL</span>
+          <span class="metric-tag">Partial observability</span>
+          <span class="metric-tag">Reward shaping</span>
+        </div>
         <div class="project-stack">
           <span class="stack-tag">PettingZoo</span>
           <span class="stack-tag">PyTorch</span>
-          <span class="stack-tag">MARL</span>
-          <span class="stack-tag">Python</span>
+          <span class="stack-tag">NumPy</span>
+          <span class="stack-tag">Matplotlib</span>
         </div>
-        <a href="https://github.com/MohamedMohy10/Cooperative-warehouse-agents-using-marl" class="project-link">View on GitHub</a>
+        <div class="project-links">
+          <a href="https://github.com/MohamedMohy10/Cooperative-warehouse-agents-using-marl" class="project-link" target="_blank">GitHub</a>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-inner">
     <div class="section-eyebrow">Background</div>
@@ -681,18 +1014,43 @@
         </div>
         <div>
           <div class="tl-role">Software Engineer Intern</div>
-          <p class="tl-desc">Built a Python monitoring extension integrating real-time air quality data via the Open-Meteo API. Worked across distributed systems, cloud monitoring platforms, and performance analytics dashboards.</p>
+          <p class="tl-desc">Contributed to production observability systems at one of the world's leading cloud monitoring platforms. Worked directly with distributed systems infrastructure serving enterprise clients globally.</p>
+          <div class="tl-bullets">
+            <div class="tl-bullet">Designed and shipped a Python monitoring extension integrating real-time environmental data via the Open-Meteo API into Dynatrace's observability platform</div>
+            <div class="tl-bullet">Customized enterprise analytics dashboards to improve data reporting across cloud monitoring use cases</div>
+            <div class="tl-bullet">Gained hands-on experience with distributed systems, managed cloud infrastructure, and performance analytics at scale</div>
+          </div>
+          <div class="tl-tags">
+            <span class="tl-tag">Python</span>
+            <span class="tl-tag">Distributed Systems</span>
+            <span class="tl-tag">Cloud Monitoring</span>
+            <span class="tl-tag">REST APIs</span>
+            <span class="tl-tag">Observability</span>
+          </div>
         </div>
       </div>
 
       <div class="tl-item fade-up">
         <div>
           <div class="tl-date">Jun 2024 – Feb 2025</div>
-          <div class="tl-company">EZDK · Alexandria, Egypt</div>
+          <div class="tl-company">EZDK Steel · Alexandria, Egypt</div>
         </div>
         <div>
           <div class="tl-role">Level 2 Automation Engineer</div>
-          <p class="tl-desc">Maintained production IT systems in a large-scale industrial environment. Developed C# software components, managed Oracle databases with PL/SQL, and handled server and network infrastructure.</p>
+          <p class="tl-desc">Owned production software systems in a large-scale industrial environment — one of Egypt's largest steel producers. Responsible for system reliability, database management, and software development across critical plant operations.</p>
+          <div class="tl-bullets">
+            <div class="tl-bullet">Developed C# software components for automation and process optimization in live production systems</div>
+            <div class="tl-bullet">Managed Oracle databases including schema design, PL/SQL queries, and data extraction pipelines supporting operational decisions</div>
+            <div class="tl-bullet">Maintained server and network infrastructure ensuring high availability across critical plant systems</div>
+            <div class="tl-bullet">Built enterprise reporting systems using Oracle Forms &amp; Reports to improve operational decision-making</div>
+          </div>
+          <div class="tl-tags">
+            <span class="tl-tag">C#</span>
+            <span class="tl-tag">Oracle</span>
+            <span class="tl-tag">PL/SQL</span>
+            <span class="tl-tag">Industrial Systems</span>
+            <span class="tl-tag">Network Infrastructure</span>
+          </div>
         </div>
       </div>
 
@@ -703,7 +1061,20 @@
         </div>
         <div>
           <div class="tl-role">Freelance Python Developer</div>
-          <p class="tl-desc">Designed and deployed backend systems using FastAPI, Django, and Flask. Delivered a Telegram currency rate bot, a live football data scraping pipeline, and a secure encrypted password manager application.</p>
+          <p class="tl-desc">Designed, built, and delivered backend systems for real clients — independently managing requirements, architecture decisions, and delivery end to end.</p>
+          <div class="tl-bullets">
+            <div class="tl-bullet">Designed and deployed production backend systems using FastAPI, Django, and Flask for multiple clients</div>
+            <div class="tl-bullet">Built a Telegram-based currency rate bot with real-time API integration and automated daily financial data updates</div>
+            <div class="tl-bullet">Developed a live football match data scraping pipeline with structured CSV export</div>
+            <div class="tl-bullet">Delivered a secure encrypted password manager desktop application with full GUI</div>
+          </div>
+          <div class="tl-tags">
+            <span class="tl-tag">FastAPI</span>
+            <span class="tl-tag">Django</span>
+            <span class="tl-tag">Flask</span>
+            <span class="tl-tag">Python</span>
+            <span class="tl-tag">REST APIs</span>
+          </div>
         </div>
       </div>
 
@@ -711,19 +1082,84 @@
   </div>
 </section>
 
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="section-inner">
+    <div class="section-eyebrow">Approach</div>
+    <h2>Engineering philosophy</h2>
+    <div class="philosophy-grid">
+      <div class="philosophy-card fade-up">
+        <div class="philosophy-icon">⚙️</div>
+        <div class="philosophy-title">Production first</div>
+        <p class="philosophy-desc">I don't build demos. Every system I design is built to be deployed — with proper error handling, modular architecture, and reproducible results. If it can't run in production, it's not done.</p>
+      </div>
+      <div class="philosophy-card fade-up">
+        <div class="philosophy-icon">🧱</div>
+        <div class="philosophy-title">Engineering depth over framework breadth</div>
+        <p class="philosophy-desc">Knowing LangChain is easy. Understanding when not to use it is harder. I approach AI systems as a software engineer — with attention to scalability, maintainability, and long-term design quality.</p>
+      </div>
+      <div class="philosophy-card fade-up">
+        <div class="philosophy-icon">📐</div>
+        <div class="philosophy-title">Measurable outcomes</div>
+        <p class="philosophy-desc">Every system I build has defined success metrics — inference latency, accuracy, retrieval quality, pipeline reliability. I believe AI engineering without measurement is just guessing.</p>
+      </div>
+      <div class="philosophy-card fade-up">
+        <div class="philosophy-icon">🔁</div>
+        <div class="philosophy-title">Full-stack AI thinking</div>
+        <p class="philosophy-desc">From backend architecture to model training to frontend interfaces — I can design and build the entire system. AI value comes from integration, not isolation. I think about the whole pipeline, not just the model.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRENTLY BUILDING -->
+<section id="building">
+  <div class="section-inner">
+    <div class="section-eyebrow">Active</div>
+    <h2>Currently building</h2>
+    <div class="building-grid">
+      <div class="building-card fade-up">
+        <div class="building-badge"><div class="building-dot"></div> In progress</div>
+        <div class="building-title">Enterprise Brain</div>
+        <p class="building-desc">Multimodal enterprise RAG system supporting PDFs, tables, and images with cross-document reasoning and structured citation. Designed for real organizational knowledge management.</p>
+      </div>
+      <div class="building-card fade-up">
+        <div class="building-badge"><div class="building-dot"></div> In progress</div>
+        <div class="building-title">DataPilot AI v2</div>
+        <p class="building-desc">Extending DataPilot with multi-dataset reasoning, automated hypothesis generation, and improved agent memory. Moving from single-session analysis toward persistent analytical workflows.</p>
+      </div>
+      <div class="building-card fade-up">
+        <div class="building-badge"><div class="building-dot"></div> Research</div>
+        <div class="building-title">Warehouse Multi-Agent RL</div>
+        <p class="building-desc">Continuing research into emergent coordination strategies in cooperative MARL environments, with focus on scalability to larger agent populations and dynamic task assignment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
     <div class="contact-grid">
       <div>
         <div class="section-eyebrow">Contact</div>
-        <h2>Let's work together</h2>
+        <h2>Open to the right opportunity</h2>
         <p class="contact-desc">
-          Available for remote roles and freelance projects in AI engineering,
-          LLM systems, RAG pipelines, and Python backend development.
-          Based in Linz, Austria — working globally.
+          I'm looking for roles where I can build real AI systems that ship to production — not maintain dashboards. If you're working on something technically interesting in AI engineering, LLM systems, backend development, or applied ML, I'd like to hear about it.
         </p>
+        <div class="contact-types">
+          <span class="contact-type-tag">AI Engineering</span>
+          <span class="contact-type-tag">LLM Systems</span>
+          <span class="contact-type-tag">Backend Development</span>
+          <span class="contact-type-tag">Consulting</span>
+          <span class="contact-type-tag">Freelance</span>
+          <span class="contact-type-tag">Full-time</span>
+          <span class="contact-type-tag">Internships</span>
+          <span class="contact-type-tag">Remote</span>
+          <span class="contact-type-tag">Onsite Austria</span>
+        </div>
         <a href="mailto:mohamedmohy753@gmail.com" class="btn-primary">Send an email</a>
-        <div class="social-icons" style="margin-top: 1.5rem;">
+        <div class="social-icons">
           <a href="https://linkedin.com/in/mohamedmohy10/" class="social-icon" target="_blank" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke="#1a4fa0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -757,11 +1193,15 @@
         </div>
         <div class="info-row">
           <span class="info-key">Work type</span>
-          <span class="info-val">Onsite (Austria) / Remote / Freelance</span>
+          <span class="info-val">Remote · Onsite Austria · Freelance</span>
         </div>
         <div class="info-row">
           <span class="info-key">Education</span>
-          <span class="info-val">M.Sc. AI Eng. @ JKU</span>
+          <span class="info-val">M.Sc. AI Eng. · JKU Linz</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Languages</span>
+          <span class="info-val">Arabic · English C1</span>
         </div>
       </div>
     </div>
@@ -770,7 +1210,7 @@
 
 <footer>
   <span>© 2026 Mohamed Mohy</span>
-  <span>AI & Machine Learning Engineer</span>
+  <span>AI & Machine Learning Engineer · Linz, Austria</span>
 </footer>
 
 <script>
@@ -781,11 +1221,11 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
+
 <script>
   function animateTerminal() {
     const lines = document.querySelectorAll('.terminal-line');
     lines.forEach(line => line.style.opacity = '0');
-
     let i = 0;
     function showNext() {
       if (i < lines.length) {
@@ -794,17 +1234,13 @@
         i++;
         setTimeout(showNext, 350);
       } else {
-        // pause 2 seconds at the end, then restart
-        setTimeout(() => {
-          i = 0;
-          animateTerminal();
-        }, 2000);
+        setTimeout(() => { i = 0; animateTerminal(); }, 2000);
       }
     }
     showNext();
   }
-
   animateTerminal();
 </script>
+
 </body>
 </html>
