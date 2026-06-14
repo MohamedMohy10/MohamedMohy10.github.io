@@ -941,7 +941,7 @@
         <div class="project-num">01</div>
         <div class="project-title">DataPilot AI</div>
         <div class="project-problem">Autonomous Data Analysis Agent</div>
-        <p class="project-desc">The problem with most data analysis tools is that you need to know what questions to ask. DataPilot takes a different approach — given a CSV file, the agent plans its own analysis steps, writes Python code to execute them, retries on failure, and produces a structured PDF report with charts. The interesting engineering challenge was building a reliable code execution loop with self-correction, so the agent recovers from runtime errors without human intervention.</p>
+        <p class="project-desc">The problem with most data analysis tools is that you need to know what questions to ask. DataPilot takes a different approach, given a CSV file, the agent plans its own analysis steps, writes Python code to execute them, retries on failure, and produces a structured PDF report with charts. The interesting engineering challenge was building a reliable code execution loop with self-correction, so the agent recovers from runtime errors without human intervention.</p>
         <div class="pipeline">
           <span class="pipeline-step">CSV Upload</span>
           <span class="pipeline-arrow">→</span>
@@ -977,7 +977,7 @@
         <div class="project-num">02</div>
         <div class="project-title">RAG Knowledge Base Chatbot</div>
         <div class="project-problem">Document Retrieval with Citation Grounding</div>
-        <p class="project-desc">Built a RAG application that lets users query their own documents and receive answers grounded in the source material, with citations pointing back to specific passages. The pipeline covers document ingestion, chunking, embedding, vector storage, retrieval, and response generation. Packaged with a FastAPI backend and Streamlit frontend, deployed via Docker — The main challenge was keeping responses grounded in the uploaded documents while maintaining low retrieval latency. The pipeline combines document chunking, vector search, and citation generation so users can trace every answer back to its source.</p>
+        <p class="project-desc">Built a RAG application that lets users query their own documents and receive answers grounded in the source material, with citations pointing back to specific passages. The pipeline covers document ingestion, chunking, embedding, vector storage, retrieval, and response generation. Packaged with a FastAPI backend and Streamlit frontend, deployed via Docker. The main challenge was keeping responses grounded in the uploaded documents while maintaining low retrieval latency. The pipeline combines document chunking, vector search, and citation generation so users can trace every answer back to its source.</p>
         <div class="pipeline">
           <span class="pipeline-step">PDF Ingestion</span>
           <span class="pipeline-arrow">→</span>
@@ -1013,7 +1013,7 @@
         <div class="project-num">03</div>
         <div class="project-title">ALPR System</div>
         <div class="project-problem">Real-Time License Plate Detection</div>
-        <p class="project-desc">Trained and optimized a YOLOv8 model for real-time license plate detection, with the goal of making it fast enough for live camera input. The focus was on the inference pipeline — getting latency down to ~3.5ms on NVIDIA T4 while keeping accuracy high. Evaluated using mAP50 and F1-score, achieving 98.4% and 96.6% respectively. Designed for deployment in real-time scenarios, not just offline benchmarking.</p>
+        <p class="project-desc">Trained and optimized a YOLOv8 model for real-time license plate detection, with the goal of making it fast enough for live camera input. The focus was on the inference pipeline, getting latency down to ~3.5ms on NVIDIA T4 while keeping accuracy high. Evaluated using mAP50 and F1-score, achieving 98.4% and 96.6% respectively.</p>
         <div class="pipeline">
           <span class="pipeline-step">Camera Feed</span>
           <span class="pipeline-arrow">→</span>
